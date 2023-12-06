@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dart Frog Chat App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -58,6 +59,25 @@ final chatRoom = ChatRoom(
   ),
   unreadCount: 0,
 );
+
+final messages = [
+  Message(
+    id: 'de120f3a-dbca-4330-9e2e-18b55a2fb9e5',
+    chatRoomId: '8d162274-6cb8-4776-815a-8e721ebfb76d',
+    senderUserId: userId1,
+    receiverUserId: userId2,
+    content: 'Hey! I am good, thanks.',
+    createdAt: DateTime(2023, 12, 1, 1, 0, 10),
+  ),
+  Message(
+    id: '29829a84-30b9-47e9-b6df-518519843f7d',
+    chatRoomId: '8d162274-6cb8-4776-815a-8e721ebfb76d',
+    senderUserId: userId2,
+    receiverUserId: userId1,
+    content: 'Hey! How are you?',
+    createdAt: DateTime(2023, 12, 1, 1, 0, 0),
+  ),
+];
 
 // [{
 //   chat_room_id: 8baf5ca2-e254-49e6-ac97-70e40559574d,
