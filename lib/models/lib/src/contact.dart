@@ -71,10 +71,10 @@ class Contact extends Equatable {
 
   @override
   List<Object?> get props => [
-    id,
-    userId,
-    contactName,
-    phoneNumber,
-    avatarUrl,
-  ];
+        id,
+        userId,
+        contactName,
+        phoneNumber,
+        avatarUrl,
+      ];
 }

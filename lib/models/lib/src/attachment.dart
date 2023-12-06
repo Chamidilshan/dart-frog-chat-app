@@ -35,7 +35,7 @@ class Attachment extends Equatable {
       id: json['id'] ?? const Uuid().v4(),
       messageId: json['messageId'] ?? '',
       type: AttachmentType.values.firstWhere(
-            (e) => e.toString().split('.').last == json['type'],
+        (e) => e.toString().split('.').last == json['type'],
         orElse: () => AttachmentType.image,
       ),
       attachmentUrl: json['attachmentUrl'] ?? '',

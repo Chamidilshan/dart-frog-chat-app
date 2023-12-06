@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:models/src/attachment.dart';
 import 'package:uuid/uuid.dart';
 
 import '../models.dart';
@@ -69,12 +68,12 @@ class Message extends Equatable {
 
   @override
   List<Object?> get props => [
-    id,
-    chatRoomId,
-    senderUserId,
-    receiverUserId,
-    content,
-    attachment,
-    createdAt,
-  ];
+        id,
+        chatRoomId,
+        senderUserId,
+        receiverUserId,
+        content,
+        attachment,
+        createdAt,
+      ];
 }

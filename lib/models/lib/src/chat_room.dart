@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:models/models.dart';
-import 'package:models/src/message.dart';
-import 'package:models/src/user.dart';
 import 'package:uuid/uuid.dart';
+import 'models.dart';
 
 class ChatRoom extends Equatable {
   final String id;
@@ -36,8 +34,8 @@ class ChatRoom extends Equatable {
       id: json['id'] ?? const Uuid().v4(),
       participants: (json['participants'] is List)
           ? json['participants']
-          .map<User>((user) => User.fromJson(user))
-          .toList()
+              .map<User>((user) => User.fromJson(user))
+              .toList()
           : [],
       lastMessage: Message.fromJson(json['last_message'] ?? {}),
       unreadCount: json['unread_count'] ?? 0,
