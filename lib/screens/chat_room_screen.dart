@@ -76,11 +76,35 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                 child: ListView.builder(
                   itemCount: messages.length,
                     itemBuilder: (context, index){
+
                     final message = messages[index];
-                      return MessageBubbles(
-                        message: message,
+
+                    final showImage = index+1 == messages.length ||
+                      messages[index +1].senderUserId != message.senderUserId;
+
+                      return Row(
+                        mainAxisAlignment: (message.senderUserId != userId1)
+                            ? MainAxisAlignment.end
+                        : MainAxisAlignment.start,
+                        children: [
+                          if(showImage && message.senderUserId == userId1)
+                              Avatar(
+                                  imageUrl: otherParticipant.avatarUrl,
+                                  radius: 12
+                              ),
+                          MessageBubbles(
+                            message: message,
+                          ),
+                          if(showImage && message.senderUserId != userId1)
+                            Avatar(
+                                imageUrl: otherParticipant.avatarUrl,
+                                radius: 12
+                            ),
+                        ],
                       );
+
                     }
+
                 ),
               ),
               Row(
@@ -100,6 +124,10 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
                           borderSide: BorderSide.none
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: (){},
+                          icon: Icon(Icons.attach_file),
                         )
                       ),
                     ),
